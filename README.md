@@ -1,4 +1,4 @@
 lets-jumpstart
 ==============
 
-LETS Jumpstart Website
+LETS Jumpstart Website Project
