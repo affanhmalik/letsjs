@@ -1,13 +1,11 @@
 from django.conf.urls import patterns, include, url
 
-from django.contrib import admin
-admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'letsjs.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^letsjs/', include('js1.urls')),
+    url(r'^$', 'js1.views.home'),
+    
 )
