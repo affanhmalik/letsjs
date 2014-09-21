@@ -85,3 +85,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'static')
+MEDIA_URL = '/media/'
+ADMIN_MEDIA_PREFIX = '/media/'
+
+# URL of the login page.
+LOGIN_URL = '/letsjs/login/'
