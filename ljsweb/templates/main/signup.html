@@ -1,0 +1,11 @@
+<h1>LET'S JS</h1>
+	<h2>Sign up</h2>
+	
+	<div>
+		<form name="sign up" action="/main/register/" method="post">
+			{% csrf_token %}
+			<input type="text" name="username" placeholder="Enter username/email">
+			<input type="password" name="password" placeholder="Enter password">
+			<input type="submit" value="Register">
+		</form>
+	</div>
