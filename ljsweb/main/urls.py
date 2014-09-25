@@ -7,5 +7,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
 
-    url(r'^$', TemplateView.as_view(template_name="main/test.html")),
+    url(r'^$', TemplateView.as_view(template_name="main/index.html")),
 )
