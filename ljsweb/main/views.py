@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import json
 from django.http import HttpResponse
+from models import userProfile
 
 # Create your views here.
 
@@ -22,14 +23,27 @@ def sign_up_in(request):
 	post = request.POST
 	if not user_exists(post['username']):
 		user = create_user(username=post['username'], password=post['password'])
-		
+		profile = create_profile(user,utype=post['type'])
 		return auth_and_login(request)
 	else:
 		return redirect("/main/")
 
 @login_required
 def loggedin(request):
-	return render_to_response('main/test.html',{'user':request.user})
+	profile = userProfile.objects.get(user=request.user)
+	if profile.usrType=='PR':
+		return render_to_response('main/test_pr.html',{'user':request.user})
+	else:
+		return render_to_response('main/test_st.html',{'user':request.user})
+
+
+# Create the user profile
+def create_profile(user,utype):
+	profile = userProfile(user=user,usrType=utype)
+	#profile.useract = user
+	#profile.usrType = type
+	profile.save()
+	return profile
 
 
 # Create a new user with the request credentials
