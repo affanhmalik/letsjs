@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response, redirect
+from django.views.decorators.csrf import csrf_protect
+from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -63,3 +65,11 @@ def user_exists(username):
 def logout_user(request):
 	logout(request)
 	return redirect("/main/")
+
+@csrf_protect
+def home(request):
+	 return render_to_response('main/loginbox.html', {}, context_instance=RequestContext(request))
+
+@csrf_protect
+def signup(request):
+	return render_to_response('main/signup.html', {}, context_instance=RequestContext(request))

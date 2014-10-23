@@ -4,10 +4,10 @@
 	<div>
 		<form name="sign up" action="/main/register/" method="post">
 			{% csrf_token %}
-			<input type="text" name="username" placeholder="Enter username/email">
-			<input type="password" name="password" placeholder="Enter password">
-			<input type="radio" name="type" value="ST">Student<br>
-			<input type="radio" name="type" value="PR">Partner
+			<input type="text" name="username" placeholder="Enter username/email" autofocus required>
+			<input type="password" name="password" placeholder="Enter password" required><br>
+			<input type="radio" name="type" value="ST" checked>Student<br>
+			<input type="radio" name="type" value="PR">Partner<br>
 			<input type="submit" value="Register">
 		</form>
 	</div>

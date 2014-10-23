@@ -1,0 +1,36 @@
+{% extends "main/index.html" %}
+
+{% block loginbox %}
+
+
+<div class="content container">
+					<header>
+						<h2>Sign In</h2>
+						<p>Log in or <a href="/main/signup/">sign up</a></p>
+					</header>
+					<div class="box container small">
+					
+					<!-- Contact Form -->
+							<form name="login" action="/main/login/" method="post">
+								{% csrf_token %}
+								<div class="row half">
+									<div class="6u"><input type="text" name="username" placeholder="Username/email" /></div>
+									<div class="6u"><input type="password" name="password" placeholder="Password" /></div>
+								</div>
+								<!-- <div class="row half">
+									<div class="12u"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
+								</div> -->
+								<div class="row">
+									<div class="12u">
+										<ul class="actions">
+											<li><input type="submit" value="Log in" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+
+					</div>
+				</div>
+
+
+				{% endblock %}

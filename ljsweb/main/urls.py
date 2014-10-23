@@ -8,9 +8,11 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
 
-    url(r'^$', TemplateView.as_view(template_name="main/index.html")),
+    #url(r'^$', TemplateView.as_view(template_name="main/index.html")),
+    url(r'^$', views.home, name='home'),
     url(r'^home/$', views.loggedin, name='loggedin'),
-    url(r'^signup/$', TemplateView.as_view(template_name="main/signup.html")),
+    #url(r'^signup/$', TemplateView.as_view(template_name="main/signup.html")),
+    url(r'^signup/$', views.signup, name='signup'),
     url(r'^login/$', views.auth_and_login, name='login'),
     url(r'^logout/$', views.logout_user, name='logout'),
     url(r'^register/$', views.sign_up_in, name='register'),
